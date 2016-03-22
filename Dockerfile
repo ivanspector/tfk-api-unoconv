@@ -13,7 +13,7 @@ MAINTAINER Geir Gåsodden
 #### Begin setup ####
 
 # Installs unoconv
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y unoconv && apt-get clean
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y unoconv git && apt-get clean
 
 # Bundle app source
 COPY . /src

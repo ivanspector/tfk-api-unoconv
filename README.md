@@ -26,6 +26,12 @@ API for the webservice is /unoconv/{format-to-convert-to} so a docx to pdf would
 $ curl --form file=@myfile.docx http://192.168.99.100/unoconv/pdf > myfile.pdf
 ```
 
+pr option set PageRange
+
+```sh
+$ curl --form file=@myfile.docx --form pr=1 http://192.168.99.100/unoconv/pdf > myfile.pdf
+```
+
 ## Environment
 
 You can change the webservice port and filesize-limit by changing environment variables.

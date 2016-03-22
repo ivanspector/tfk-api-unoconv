@@ -10,6 +10,8 @@ function handleUpload (request, reply) {
   if (data.file) {
     var nameArray = data.file.hapi.filename.split('.')
     var newNameConverted = nameArray.join('.') + '.' + convertToFormat
+    var pageRange = data.pr
+
     var fileEndingOriginal = nameArray.pop()
     var temporaryName = uuid.v4()
     var pathPre = process.cwd() + '/uploads/' + temporaryName
@@ -26,7 +28,7 @@ function handleUpload (request, reply) {
       if (err) {
         reply(err)
       } else {
-        unoconv.convert(fileNameTempOriginal, convertToFormat, function (err, result) {
+        unoconv.convert(fileNameTempOriginal, convertToFormat, pageRange, function (err, result) {
           if (err) {
             reply(err)
           } else {
